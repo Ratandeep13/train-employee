@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Resource from 'vue-resource'
-import ResourceMock from 'vue-resource-mock'
-import apimock from '@/api-mock'
+// import ResourceMock from 'vue-resource-mock'
+// import apimock from '@/api-mock'
 
 Vue.use(Resource)
 if (process.env.NODE_ENV === 'development') {
-  Vue.use(ResourceMock, apimock)
+  // Vue.use(ResourceMock, apimock)
 }
 
 const commonApi = {
@@ -28,6 +28,13 @@ const commonApi = {
   },
   putDataViaApi (path, data, cb, errorHandler) {
     Vue.http.put(path, data).then((res) => {
+      cb(res)
+    }, (error) => {
+      errorHandler(error)
+    })
+  },
+  deleteDataViaApi (path, cb, errorHandler) {
+    Vue.http.delete(path).then((res) => {
       cb(res)
     }, (error) => {
       errorHandler(error)

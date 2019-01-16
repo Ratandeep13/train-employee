@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import EmployeeHome from '@/pages/EmployeeHome'
 import EmployeeList from '@/pages/EmployeeList'
 import AddEmployee from '@/pages/AddEmployee'
+import EditEmployee from '@/pages/EditEmployee'
 
 Vue.use(Router)
 
@@ -27,6 +28,11 @@ export default new Router({
       path: 'addEmployee',
       name: 'AddEmployee',
       component: AddEmployee
+    },
+    {
+      path: 'editEmployee',
+      name: 'EditEmployee',
+      component: EditEmployee
     }]
   }]
 })

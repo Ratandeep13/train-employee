@@ -4,13 +4,14 @@
       <div class="heading">
         <h4>Employee List</h4>
         <div class="button__wrapper">
-          <button name="addEmployee" @click="addEmployee">addEmployee</button>
+          <button name="addEmployee" @click="addEmployee">Add Employee</button>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col s12 m6" v-for="(emp, index) in employeeList" v-bind:key="index">
         <div class="card">
+          {{emp}}
           <div class="card-content teal lighten-5">
             <div class="image__wrapper">
               <img src="/static/images/dummy-pic.png">
@@ -20,8 +21,10 @@
             <div>Date of Joining: {{convertTStoDate(emp.dateOfJoining)}}</div>
           </div>
           <div class="card-action teal lighten-1">
-            <a href="#">Edit</a>
-            <a href="#">Update</a>
+            <a href="javaScript:void(0)"
+              @click="editDetails(emp)">Edit</a>
+            <a href="javaScript:void(0)"
+              @click="deleteEmp(emp.employeeId)">Delete</a>
           </div>
         </div>
       </div>

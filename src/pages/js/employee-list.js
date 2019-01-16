@@ -10,7 +10,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getEmployeeList']),
+    ...mapActions(['getEmployeeList', 'deleteEmpData']),
 
     getEmployeeListData: function () {
       this.$store.dispatch('getEmployeeList', {
@@ -20,6 +20,13 @@ export default {
     },
     addEmployee () {
       this.$router.push('/employee/addEmployee')
+    },
+    editDetails (data) {
+      let empData = JSON.parse(JSON.stringify(data))
+      empData.dateOfBirth = this.convertTStoDate(data.dateOfBirth)
+      empData.dateOfJoining = this.convertTStoDate(data.dateOfJoining)
+      this.$store.commit('UPDATE_EDIT_EMP_DATA', empData)
+      this.$router.push('/employee/editEmployee')
     },
     callOnSuccess: function (response) {
       console.log(response)
@@ -35,6 +42,16 @@ export default {
       let monthNo = a.getMonth() + 1
       let date = a.getDate()
       return date + '-' + monthNo + '-' + year.toString()
+    },
+    deleteEmpSuccess () {
+      this.getEmployeeListData()
+    },
+    deleteEmp (empId) {
+      this.$store.dispatch('deleteEmpData', {
+        employeeId: empId,
+        success: this.deleteEmpSuccess,
+        failure: this.callOnFail
+      })
     }
   },
   created () {

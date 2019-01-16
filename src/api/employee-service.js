@@ -10,13 +10,13 @@ const employeeService = {
   getAllEmployeeList (callback, errHandler) {
     commonService.getDataViaApi(apiPath.employees_list, callback, errHandler)
   },
-  deleteEmployeeById (id, callback, errHandler) {
-    commonService.getDataViaApi(apiPath.deleteEmployeeById(id), callback, errHandler)
+  deleteEmployeeById (callback, errHandler, id) {
+    commonService.getDataViaApi(apiPath.deleteEmpById(id), callback, errHandler)
   },
-  addNewemployee (callback, errHandler, empObj) {
+  addNewEmployee (callback, errHandler, empObj) {
     commonService.postDataViaApi(apiPath.add_employee, empObj, callback, errHandler)
   },
-  updateEmployee (empObj, callback, errHandler) {
+  updateEmployee (callback, errHandler, empObj) {
     commonService.postDataViaApi(apiPath.add_employee, empObj, callback, errHandler)
   }
 }

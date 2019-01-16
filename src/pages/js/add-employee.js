@@ -6,6 +6,8 @@ export default {
 		...mapGetters(['createdEmpData'])
 	},
 	methods: {
+		...mapActions(['createNewEmp']),
+
 		setData (evt, key) {
 			this.$store.commit(key, evt.currentTarget.value)
 		},
@@ -16,7 +18,7 @@ export default {
 			console.log(error)
 		},
 		addEmp () {
-			this.$store.dispatch('addNewemployee', {
+			this.$store.dispatch('createNewEmp', {
 				empData: this.createdEmpData,
 				success: this.addEmpSuccess,
 				failure: this.failure

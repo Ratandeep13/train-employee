@@ -17,7 +17,13 @@ const employeeService = {
     commonService.postDataViaApi(apiPath.add_employee, empObj, callback, errHandler)
   },
   updateEmployee (callback, errHandler, empObj) {
-    commonService.postDataViaApi(apiPath.add_employee, empObj, callback, errHandler)
+    let reqBody = {...empObj}
+    reqBody.dateOfJoining = this.reverseDateFormat(reqBody.dateOfJoining)
+    reqBody.dateOfBirth = this.reverseDateFormat(reqBody.dateOfBirth)
+    commonService.postDataViaApi(apiPath.add_employee, reqBody, callback, errHandler)
+  },
+  reverseDateFormat (date) {
+    return date.split('-').reverse().join('-')
   }
 }
 

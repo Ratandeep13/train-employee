@@ -6,7 +6,7 @@ const state = {
     firstName: '',
     lastName: '',
     dateOfBirth: '',
-    dateOfJoining: '',
+    dateOfJoining: ''
   },
   editEmployee: {}
 }
@@ -54,7 +54,7 @@ const actions = {
     })
   },
 
-  createNewEmp ({commit}, {empData ,success, failure}) {
+  createNewEmp ({commit}, {empData, success, failure}) {
     employeeService.addNewEmployee((response) => {
       success(response)
     }, (error) => {
@@ -62,7 +62,7 @@ const actions = {
     }, empData)
   },
 
-  deleteEmpData ({commit}, {employeeId ,success, failure}) {
+  deleteEmpData ({commit}, {employeeId, success, failure}) {
     employeeService.deleteEmployeeById((response) => {
       success(response)
     }, (error) => {
@@ -70,7 +70,7 @@ const actions = {
     }, employeeId)
   },
 
-  editEmp ({commit}, {empData ,success, failure}) {
+  editEmp ({commit}, {empData, success, failure}) {
     employeeService.updateEmployee((response) => {
       success(response)
     }, (error) => {

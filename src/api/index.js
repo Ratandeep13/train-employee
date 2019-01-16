@@ -5,7 +5,7 @@ import Resource from 'vue-resource'
 
 Vue.use(Resource)
 if (process.env.NODE_ENV === 'development') {
-  //Vue.use(ResourceMock, apimock)
+  // Vue.use(ResourceMock, apimock)
 }
 
 const commonApi = {

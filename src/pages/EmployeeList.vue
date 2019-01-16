@@ -11,7 +11,6 @@
     <div class="row">
       <div class="col s12 m6" v-for="(emp, index) in employeeList" v-bind:key="index">
         <div class="card">
-          {{emp}}
           <div class="card-content teal lighten-5">
             <div class="image__wrapper">
               <img src="/static/images/dummy-pic.png">

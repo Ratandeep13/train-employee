@@ -13,7 +13,7 @@ const employeeService = {
   deleteEmployeeById (id, callback, errHandler) {
     commonService.getDataViaApi(apiPath.deleteEmployeeById(id), callback, errHandler)
   },
-  addNewemployee (empObj, callback, errHandler) {
+  addNewemployee (callback, errHandler, empObj) {
     commonService.postDataViaApi(apiPath.add_employee, empObj, callback, errHandler)
   },
   updateEmployee (empObj, callback, errHandler) {

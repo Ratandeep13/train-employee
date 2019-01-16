@@ -11,11 +11,15 @@ export default {
   },
   methods: {
     ...mapActions(['getEmployeeList']),
+
     getEmployeeListData: function () {
       this.$store.dispatch('getEmployeeList', {
         success: this.callOnSuccess,
         failure: this.callOnFail
       })
+    },
+    addEmployee () {
+      this.$router.push('/employee/addEmployee')
     },
     callOnSuccess: function (response) {
       console.log(response)

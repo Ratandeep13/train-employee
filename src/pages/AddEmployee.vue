@@ -7,7 +7,7 @@
       <div class="fields__wrapper">
         <div class="row">
           <div class="input-field col s6">
-            <input id="firstName" type="text" class="validate" 
+            <input id="firstName" type="text" class="validate"
               @keyup="setData($event, 'CREATE_EMP_FIRST_NAME')">
             <label for="firstName">First Name</label>
           </div>

@@ -38,7 +38,7 @@ const actions = {
       failure(error)
     })
   },
-  createNewEmp ({commit}, {empData ,success, failure}) {
+  createNewEmp ({commit}, {empData, success, failure}) {
     employeeService.addNewemployee((response) => {
       success(response)
     }, (error) => {
